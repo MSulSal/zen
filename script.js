@@ -38,4 +38,4 @@ setInterval(() => {
     const a = Math.random().toFixed(2);
     shape.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
   }
-}, 2000);
+}, 8000);
