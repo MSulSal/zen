@@ -3,8 +3,8 @@ body {
   width: 100vw;
   display: grid;
   place-items: center;
-  background-color: black;
-  margin: 0px;
+  background: radial-gradient(circle at center, #001d3d, #000814);
+  margin: 0;
   overflow: hidden;
 }
 
@@ -22,34 +22,6 @@ body {
   transition: left, top, height, width, border-radius, background-color, opacity;
   transition-duration: 4000ms;
   transition-timing-function: ease-in-out;
-}
-
-#wrapper > .shape:nth-child(1) {
-  z-index: 2;
-}
-
-#wrapper > .shape:nth-child(2) {
-  z-index: 2;
-}
-
-#wrapper > .shape:nth-child(3) {
-  z-index: 1;
-}
-
-#wrapper > .shape:nth-child(4) {
-  z-index: 2;
-}
-
-#wrapper > .shape:nth-child(5) {
-  z-index: 2;
-}
-
-#wrapper > .shape:nth-child(6) {
-  z-index: 2;
-}
-
-#wrapper > .shape:nth-child(7) {
-  z-index: 2;
 }
 
 #wrapper[data-configuration="1"] > .shape:nth-child(1) {
@@ -238,4 +210,16 @@ body {
 
 #wrapper[data-roundness="4"] > .shape:nth-child(7) {
   border-top-left-radius: 10rem;
+}
+
+#overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: sans-serif;
+  font-size: 4vmin;
+  pointer-events: none;
+  user-select: none;
 }
