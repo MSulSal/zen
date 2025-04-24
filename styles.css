@@ -223,3 +223,20 @@ body {
   pointer-events: none;
   user-select: none;
 }
+
+#scrollers {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1vmin;
+}
+
+.scroller {
+  width: 0;
+  height: 0.5vmin;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 1vmin;
+  transition: width 6000ms ease-in-out;
+}

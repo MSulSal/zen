@@ -17,21 +17,31 @@ const combinations = [
 let prev = 0;
 const breaths = ["Inhale", "Exhale"];
 let breathIndex = 0;
+const inhaleBar = document.getElementById("inhale-scroller");
+const exhaleBar = document.getElementById("exhale-scroller");
 function animate() {
-  const index = uniqueRand(0, combinations.length - 1, prev),
-    combo = combinations[index];
+  const index = uniqueRand(0, combinations.length - 1, prev);
+  const combo = combinations[index];
   wrapper.dataset.configuration = combo.configuration;
   wrapper.dataset.roundness = combo.roundness;
   prev = index;
   for (let shape of shapes) {
-    const r = Math.floor(Math.random() * 256),
-      g = Math.floor(Math.random() * 256),
-      b = Math.floor(Math.random() * 256),
-      a = Math.random().toFixed(2);
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const a = Math.random().toFixed(2);
     shape.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
   }
-  document.getElementById("overlay").textContent = breaths[breathIndex];
+  const current = breaths[breathIndex];
+  document.getElementById("overlay").textContent = current;
+  if (current === "Inhale") {
+    inhaleBar.style.width = "10vmin";
+    exhaleBar.style.width = "0";
+  } else {
+    exhaleBar.style.width = "10vmin";
+    inhaleBar.style.width = "0";
+  }
   breathIndex = (breathIndex + 1) % breaths.length;
 }
 animate();
-setInterval(animate, 8000);
+setInterval(animate, 6000);
